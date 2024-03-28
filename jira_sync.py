@@ -10,7 +10,7 @@ from jira import JIRA
 
 def main():
     parser = argparse.ArgumentParser(description="Update Jira when logseq files change.")
-    parser.add_argument("--config", required=False, default="config.ini",
+    parser.add_argument("--config", required=False, default="/config/config.ini",
                          help="File containing configuration for Jira (see config.ini.example).")
     parser.add_argument("--ticket-file", required=True,
                          help="File to use in order to create or update a Jira ticket.")
