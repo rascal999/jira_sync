@@ -46,8 +46,6 @@ def main():
 
         summary = summary + " (" + summary_uuid + ")"
 
-    print("Creating ticket...")
-
     issue_key = client.create_issue(
         summary=summary,
         project=project_key,
@@ -57,6 +55,7 @@ def main():
         description="placeholder",
     )
 
+    print(summary)
     print(issue_key)
 
 if __name__ == "__main__":
