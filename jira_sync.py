@@ -87,7 +87,7 @@ def main():
 
         issue_key = client.create_issue(
             summary=summary,
-            project=JIRA_PROJECT_KEY,
+            project=project_key,
             issuetype="Task",
             #priority=priority,
             #labels=['test'] + parsed.labels,

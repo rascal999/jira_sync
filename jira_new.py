@@ -46,18 +46,15 @@ def main():
 
         summary = summary + " (" + summary_uuid + ")"
 
-    print(summary)
-    sys.exit(1)
-
-    print("Creating ticket... ", end="")
+    print("Creating ticket...")
 
     issue_key = client.create_issue(
         summary=summary,
-        project=JIRA_PROJECT_KEY,
+        project=project_key,
         issuetype="Task",
         #priority=priority,
         #labels=['test'] + parsed.labels,
-        description=f"{output_text}",
+        description="placeholder",
     )
 
     print(issue_key)
