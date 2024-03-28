@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Directory to watch
-directory="/home/user/Data/logseq/pages"
+directory="/watch/"
 
 # Watch for file changes indefinitely
 while true; do
