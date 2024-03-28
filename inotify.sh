@@ -15,7 +15,7 @@ while true; do
             echo "$NOW File '$line' was modified."
 
             # Add your custom logic here to respond to the file change
-            ./jira_sync.py --ticket-file $line
+            /root/jira_sync.py --ticket-file $line
             sleep 1
         fi
     done
