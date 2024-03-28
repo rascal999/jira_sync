@@ -1,2 +1,2 @@
 # jira_sync
-Sync files with Jira
+Sync logseq Markdown with Jira

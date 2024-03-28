@@ -1,0 +1,6 @@
+[Jira]
+base_url = https://XXX.atlassian.net/
+username = test@gmail.com
+api_key = ATATT...
+project_key = TEST
+issue_type = Task
