@@ -6,7 +6,7 @@ directory="/watch/"
 # Watch for file changes indefinitely
 while true; do
     # Use inotifywait to monitor directory for file changes
-    change=$(inotifywait -m -q -e close_write --timeout 10 --include "\.md$" --format '%w%f' "$directory")
+    change=$(inotifywait -m -q -e close_write --timeout 10 --include "SECOPS.*\.md$" --format '%w%f' "$directory")
 
     echo "$change" | sort | uniq | tail -5 | while IFS= read -r line; do
         if [[ "$line" != "" ]]; then
