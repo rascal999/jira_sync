@@ -14,7 +14,7 @@ def main():
                          help="File containing configuration for Jira (see config.ini.example).")
     parser.add_argument("--ticket-title", required=False, default=None,
                          help="Title of new ticket.")
-    parser.add_argument("--ticket-private", required=False,
+    parser.add_argument("--ticket-private", required=False, default=None,
                          help="Private ticket ID.")
 
     parsed = parser.parse_args()
@@ -37,7 +37,7 @@ def main():
 
     # Local only?
     issue_key = ""
-    if parsed.ticket_private == True:
+    if parsed.ticket_private == None:
         issue_key = parsed.ticket_private
 
     # Blank means not local
