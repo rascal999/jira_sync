@@ -41,7 +41,7 @@ def main():
         issue_key = input("Ticket ID (for local only tickets): ")
 
     # Blank means not local
-    if ticket_id == "":
+    if issue_key == "":
         # Jira auth
         client = JIRA(base_url, basic_auth=(username, api_key))
 
