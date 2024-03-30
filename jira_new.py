@@ -28,32 +28,37 @@ def main():
     project_key = config['Jira']['project_key']
     issue_type = config['Jira']['issue_type']
 
-    # Jira auth
-    client = JIRA(base_url, basic_auth=(username, api_key))
-
     if parsed.ticket_title != None:
         summary = parsed.ticket_title
     else:
         summary = input("New Jira ticket title: ")
 
-    # Determine if ticket has UUID
-    if re.search(r'( \([a-f0-9]{4}\)$)',summary):
-        pass
-    else:
-        # Summary uuid
-        generated_uuid = uuid.uuid4()
-        summary_uuid = str(generated_uuid).split('-')[2]
+    ticket_id = ""
+    ticket_id = input("Ticket ID (for local only tickets): ")
 
-        summary = summary + " (" + summary_uuid + ")"
+    # Blank means not local
+    if ticket_id == "":
+        # Jira auth
+        client = JIRA(base_url, basic_auth=(username, api_key))
 
-    issue_key = client.create_issue(
-        summary=summary,
-        project=project_key,
-        issuetype="Task",
-        #priority=priority,
-        #labels=['test'] + parsed.labels,
-        description="placeholder",
-    )
+        # Determine if ticket has UUID
+        if re.search(r'( \([a-f0-9]{4}\)$)',summary):
+            pass
+        else:
+            # Summary uuid
+            generated_uuid = uuid.uuid4()
+            summary_uuid = str(generated_uuid).split('-')[2]
+
+            summary = summary + " (" + summary_uuid + ")"
+
+        issue_key = client.create_issue(
+            summary=summary,
+            project=project_key,
+            issuetype="Task",
+            #priority=priority,
+            #labels=['test'] + parsed.labels,
+            description="placeholder",
+        )
 
     print(summary)
     print(issue_key)
