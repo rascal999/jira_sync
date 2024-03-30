@@ -37,7 +37,7 @@ def main():
 
     # Local only?
     issue_key = ""
-    if parsed.ticket_private == None:
+    if parsed.ticket_private != None:
         issue_key = parsed.ticket_private
 
     # Blank means not local
